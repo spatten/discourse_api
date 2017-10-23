@@ -7,7 +7,7 @@ module DiscourseApi
       def create_category(args={})
         args = API.params(args)
                   .required(:name, :color, :text_color)
-                  .optional(:description, :permissions)
+                  .optional(:description, :permissions, :slug)
                   .default(parent_category_id: nil)
         response = post("/categories", args)
         response['category']
